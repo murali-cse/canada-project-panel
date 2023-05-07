@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import PageTitle from "../components/page_title";
 import MUIDataTable from "mui-datatables";
 import TableHeaderLabel from "../components/table_header_label";

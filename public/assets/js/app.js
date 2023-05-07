@@ -92,10 +92,10 @@
   s("#side-menu").metisMenu(),
     s("#vertical-menu-btn").on("click", function (e) {
       e.preventDefault(),
-        $("body").toggleClass("sidebar-enable"),
-        992 <= $(window).width()
-          ? $("body").toggleClass("vertical-collpsed")
-          : $("body").removeClass("vertical-collpsed");
+        s("body").toggleClass("sidebar-enable"),
+        992 <= s(window).width()
+          ? s("body").toggleClass("vertical-collpsed")
+          : s("body").removeClass("vertical-collpsed");
     }),
     s("#sidebar-menu a").each(function () {
       var e = window.location.href.split(/[?#]/)[0];

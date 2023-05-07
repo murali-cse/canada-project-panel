@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const TableHeader = styled("h6")({
   margin: 0,
@@ -14,6 +14,10 @@ const TableHeaderLabel = ({ children }) => {
       <TableHeader>{children}</TableHeader>
     </th>
   );
+};
+
+TableHeaderLabel.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export default TableHeaderLabel;
