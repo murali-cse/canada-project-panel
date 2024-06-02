@@ -4,7 +4,8 @@ import TableHeaderLabel from "../../components/table_header_label";
 import TableBodyLabel from "../../components/table_body_label";
 import { ThemeProvider } from "@mui/material/styles";
 import muiTableTheme from "../../themes/mui_table_theme";
-import "../assets/css/mui_table.css";
+import "../../assets/css/mui_table.css";
+import { Grid, Box, Button } from "@mui/material";
 
 const Hospitals = () => {
   const columns = [
@@ -75,7 +76,11 @@ const Hospitals = () => {
 
   return (
     <div>
-      <PageTitle>Hospitals</PageTitle>
+      <Grid container>
+        <Grid item lg={12}>
+          <PageTitle>Hospitals</PageTitle>
+        </Grid>
+      </Grid>
 
       <div className="row">
         {/* <div className="col-xl-4">

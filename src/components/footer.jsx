@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-sm-6"></div>
             <div className="col-sm-6" style={{ textAlign: "end" }}>
-              {year} © Faest.
+              {year} © Medistation.
             </div>
           </div>
         </div>

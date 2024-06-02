@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
-import Dashboard from "./pages/dashboard";
-import Hospitals from "./pages/hospitals";
-import Insurance from "./pages/insurance";
-import Users from "./pages/users";
-import Doctors from "./pages/doctors";
-import Issues from "./pages/issues";
+import Dashboard from "./pages/dashboard/dashboard";
+import Hospitals from "./pages/hospitals/hospitals";
+import Insurance from "./pages/insurance/insurance";
+import Users from "./pages/users/users";
+import Doctors from "./pages/doctors/doctors";
+import Issues from "./pages/issues/issues";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
