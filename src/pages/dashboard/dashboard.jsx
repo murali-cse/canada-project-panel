@@ -1,6 +1,6 @@
-import DashboardCard from "../components/dashboard_card";
-import { BoxIcons } from "../utils/box_icons";
-import PageTitle from "../components/page_title";
+import DashboardCard from "../../components/dashboard_card";
+import { BoxIcons } from "../../utils/box_icons";
+import PageTitle from "../../components/page_title";
 
 const Dashboard = () => {
   return (

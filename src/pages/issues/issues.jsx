@@ -1,7 +1,7 @@
 import React from "react";
-import PageTitle from "../components/page_title";
-import RoundedButton from "../components/rounded_button";
-import CustomButton from "../components/custom_button";
+import PageTitle from "../../components/page_title";
+import RoundedButton from "../../components/rounded_button";
+import CustomButton from "../../components/custom_button";
 
 const Issues = () => {
   return (

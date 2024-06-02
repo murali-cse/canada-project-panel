@@ -1,9 +1,9 @@
-import PageTitle from "../components/page_title";
+import PageTitle from "../../components/page_title";
 import MUIDataTable from "mui-datatables";
-import TableHeaderLabel from "../components/table_header_label";
-import TableBodyLabel from "../components/table_body_label";
+import TableHeaderLabel from "../../components/table_header_label";
+import TableBodyLabel from "../../components/table_body_label";
 import { ThemeProvider } from "@mui/material/styles";
-import muiTableTheme from "../themes/mui_table_theme";
+import muiTableTheme from "../../themes/mui_table_theme";
 import "../assets/css/mui_table.css";
 
 const Hospitals = () => {
