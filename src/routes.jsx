@@ -1,0 +1,30 @@
+import React from "react";
+import Home from "./pages/home";
+import Dashboard from "./pages/dashboard/dashboard";
+import Hospitals from "./pages/hospitals/hospitals";
+import Insurance from "./pages/insurance/insurance";
+import Users from "./pages/users/users";
+import Doctors from "./pages/doctors/doctors";
+import Issues from "./pages/issues/issues";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/auth/login/login";
+
+const BaseRoutes = () => {
+  return (
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />}>
+          <Route element={<Dashboard />} index />
+          <Route path="hospitals" element={<Hospitals />} />
+          <Route path="insurance" element={<Insurance />} />
+          <Route path="users" element={<Users />} />
+          <Route path="doctors" element={<Doctors />} />
+          <Route path="issues" element={<Issues />} />
+        </Route>
+      </Routes>
+    </>
+  );
+};
+
+export default BaseRoutes;
