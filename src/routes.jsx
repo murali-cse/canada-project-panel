@@ -8,12 +8,16 @@ import Doctors from "./pages/doctors/doctors";
 import Issues from "./pages/issues/issues";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/auth/login/login";
+import Settings from "./pages/settings/settings";
+import Profile from "./pages/profile/profile";
 
 const BaseRoutes = () => {
   return (
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Home />}>
           <Route element={<Dashboard />} index />
           <Route path="hospitals" element={<Hospitals />} />

@@ -199,28 +199,20 @@ const Header = () => {
               <i className="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>
             <div className="dropdown-menu dropdown-menu-end">
-              <a className="dropdown-item" href="#">
+              <Link className="dropdown-item" to={"/profile"}>
                 <i className="bx bx-user font-size-16 align-middle me-1"></i>
                 <span key="t-profile">Profile</span>
-              </a>
-              <a className="dropdown-item" href="#">
-                <i className="bx bx-wallet font-size-16 align-middle me-1"></i>
-                <span key="t-my-wallet">My Wallet</span>
-              </a>
-              <a className="dropdown-item d-block" href="#">
+              </Link>
+              <Link className="dropdown-item d-block" to={"/settings"}>
                 <span className="badge bg-success float-end">11</span>
                 <i className="bx bx-wrench font-size-16 align-middle me-1"></i>
                 <span key="t-settings">Settings</span>
-              </a>
-              <a className="dropdown-item" href="#">
-                <i className="bx bx-lock-open font-size-16 align-middle me-1"></i>
-                <span key="t-lock-screen">Lock screen</span>
-              </a>
+              </Link>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item text-danger" href="#">
+              <Link className="dropdown-item text-danger" to={"/login"}>
                 <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
                 <span key="t-logout">Logout</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
