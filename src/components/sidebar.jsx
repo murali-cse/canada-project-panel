@@ -11,7 +11,7 @@ const SideBar = () => {
       title: "Dashboard",
     },
     {
-      path: "/hospitals",
+      path: "/hospital",
       icon: "bx bx-border-all",
       title: "Hospitals",
     },

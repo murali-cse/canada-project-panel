@@ -8,7 +8,9 @@ const TableHeader = styled("h6")({
   textTransform: "capitalize",
 });
 
-const TableHeaderLabel = ({ children }) => {
+const TableHeaderLabel = (props) => {
+  const { children } = props || {};
+
   return (
     <th>
       <TableHeader>{children}</TableHeader>

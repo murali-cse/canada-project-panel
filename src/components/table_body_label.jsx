@@ -1,8 +1,14 @@
 import PropTypes from "prop-types";
 
-const TableBodyLabel = ({ children }) => {
+const TableBodyLabel = (props) => {
+  const { noWrap = false, children = null } = props || {};
   return (
-    <span style={{ fontFamily: "Poppins", fontSize: "14px" }}>{children}</span>
+    <span
+      className={noWrap ? "text-nowrap" : ""}
+      style={{ fontFamily: "Poppins", fontSize: "14px" }}
+    >
+      {children}
+    </span>
   );
 };
 
