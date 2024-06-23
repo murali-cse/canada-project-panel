@@ -1,8 +1,6 @@
 {
-"redirects": [
-    {
-    "source": "/(.*)",
-    "destination": "https://canada-project-panel.vercel.app/"
-    }
-]
-}
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
+  
