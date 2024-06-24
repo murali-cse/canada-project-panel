@@ -10,6 +10,8 @@ import "../../assets/css/mui_table.css";
 import { Grid, Chip, Tooltip, Stack } from "@mui/material";
 import PrimaryButton from "../../components/buttons/primary_button";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ListHospitals = () => {
   const columns = [
@@ -204,7 +206,9 @@ const ListHospitals = () => {
               <Link to={"/"}>
                 <button className="btn btn-primary btn-sm ">Edit</button>
               </Link>
-              <button className="btn btn-danger btn-sm ">Delete</button>
+              <button className="btn btn-danger btn-sm " onClick={notify}>
+                Delete
+              </button>
             </Stack>
           );
         },
@@ -272,8 +276,14 @@ const ListHospitals = () => {
     filter: false,
   };
 
+  const notify = () =>
+    toast("Testing..", {
+      closeOnClick: true,
+    });
+
   return (
     <div>
+      <ToastContainer theme="dark" />
       <Grid container mb={1}>
         <Grid item lg={8}>
           <PageTitle>Hospitals</PageTitle>

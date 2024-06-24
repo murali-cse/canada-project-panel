@@ -1,6 +1,28 @@
-import { Box, Paper, Grid, styled, Chip, Divider, Stack } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Paper,
+  Grid,
+  styled,
+  Chip,
+  Divider,
+  Stack,
+  Button,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ModeIcon from "@mui/icons-material/Mode";
 import { useParams } from "react-router-dom";
 import PageTitle from "../../components/page_title";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Title = styled("p")(({ theme }) => ({
   fontSize: "16px",
@@ -14,6 +36,8 @@ const SubTitle = styled("p")(({ theme }) => ({
 }));
 
 const HospitalDetails = () => {
+  const [open, setOpen] = useState(false);
+
   // to get the params id
   const { id } = useParams();
 
@@ -23,11 +47,34 @@ const HospitalDetails = () => {
     "https://media.post.rvohealth.io/wp-content/uploads/2020/08/hospital-acquired-nosocomial-infections_thumb.jpg",
   ];
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Grid container mb={1}>
-        <Grid item lg={12}>
+        <Grid item lg={6}>
           <PageTitle>Hospital Details</PageTitle>
+        </Grid>
+        <Grid item lg={6}>
+          <Box display={"flex"} justifyContent={"end"} gap={2}>
+            <Button variant="contained" startIcon={<ModeIcon />}>
+              Edit
+            </Button>
+            <Button
+              variant="contained"
+              color="error"
+              startIcon={<DeleteIcon />}
+              onClick={handleClickOpen}
+            >
+              Delete
+            </Button>
+          </Box>
         </Grid>
       </Grid>
 
@@ -84,9 +131,10 @@ const HospitalDetails = () => {
         <Box p={5}>
           <Title>Images</Title>
           <Stack direction={"row"} gap={2}>
-            {images.map((e) => {
+            {images.map((e, i) => {
               return (
                 <img
+                  key={i}
                   src={e}
                   alt="hospital photo"
                   style={{
@@ -100,6 +148,28 @@ const HospitalDetails = () => {
           </Stack>
         </Box>
       </Paper>
+
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Delete Hospital"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit
+            blanditiis cumque fuga enim neque beatae quae voluptatum consequatur
+            consequuntur obcaecati praesentium sequi, libero hic rerum soluta,
+            porro, itaque cum debitis.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose}>Agree</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
