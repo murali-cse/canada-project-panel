@@ -5,15 +5,24 @@ import TableBodyLabel from "../../components/table_body_label";
 import { ThemeProvider } from "@mui/material/styles";
 import muiTableTheme from "../../themes/mui_table_theme";
 import "../../assets/css/mui_table.css";
-import { Grid, Box, Button } from "@mui/material";
+import { Grid, Box, Button, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useFetchUser } from "../../services/user_service.js";
 
 const Users = () => {
+  const { data, error, isLoading } = useFetchUser();
+
   const columns = [
     {
-      name: "Name",
+      name: "id",
+      label: "Id",
       options: {
         customHeadRender: (columnMeta) => {
-          return <TableHeaderLabel>{columnMeta.label}</TableHeaderLabel>;
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              {columnMeta.label}
+            </TableHeaderLabel>
+          );
         },
         customBodyRender: (value) => {
           return <TableBodyLabel>{value}</TableBodyLabel>;
@@ -21,10 +30,63 @@ const Users = () => {
       },
     },
     {
-      name: "Company",
+      name: "name",
+      label: "Name",
       options: {
         customHeadRender: (columnMeta) => {
-          return <TableHeaderLabel>{columnMeta.label}</TableHeaderLabel>;
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              {columnMeta.label}
+            </TableHeaderLabel>
+          );
+        },
+        customBodyRender: (value) => {
+          return <TableBodyLabel noWrap={true}>{value}</TableBodyLabel>;
+        },
+      },
+    },
+    {
+      name: "dob",
+      label: "DOB",
+      options: {
+        customHeadRender: (columnMeta) => {
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              {columnMeta.label}
+            </TableHeaderLabel>
+          );
+        },
+        customBodyRender: (value) => {
+          return <TableBodyLabel noWrap={true}>{value}</TableBodyLabel>;
+        },
+      },
+    },
+    {
+      name: "phone",
+      label: "Phone",
+      options: {
+        customHeadRender: (columnMeta) => {
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              {columnMeta.label}
+            </TableHeaderLabel>
+          );
+        },
+        customBodyRender: (value) => {
+          return <TableBodyLabel noWrap={true}>{value}</TableBodyLabel>;
+        },
+      },
+    },
+    {
+      name: "email",
+      label: "Email",
+      options: {
+        customHeadRender: (columnMeta) => {
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              {columnMeta.label}
+            </TableHeaderLabel>
+          );
         },
         customBodyRender: (value) => {
           return <TableBodyLabel>{value}</TableBodyLabel>;
@@ -32,47 +94,51 @@ const Users = () => {
       },
     },
     {
-      name: "City",
+      name: "actions",
+      label: "Actions",
       options: {
         customHeadRender: (columnMeta) => {
-          return <TableHeaderLabel>{columnMeta.label}</TableHeaderLabel>;
+          return (
+            <TableHeaderLabel key={columnMeta.label}>
+              <span>{columnMeta.label}</span>
+            </TableHeaderLabel>
+          );
         },
         customBodyRender: (value) => {
-          return <TableBodyLabel>{value}</TableBodyLabel>;
+          return (
+            <Stack direction={"row"} spacing={1}>
+              <Link to={"details/2"}>
+                <button className="btn btn-success btn-sm ">View</button>
+              </Link>
+              <Link to={"/"}>
+                <button className="btn btn-primary btn-sm ">Edit</button>
+              </Link>
+              <button className="btn btn-danger btn-sm " onClick={notify}>
+                Delete
+              </button>
+            </Stack>
+          );
         },
       },
     },
-    {
-      name: "State",
-      options: {
-        customHeadRender: (columnMeta) => {
-          return <TableHeaderLabel>{columnMeta.label}</TableHeaderLabel>;
-        },
-        customBodyRender: (value) => {
-          return <TableBodyLabel>{value}</TableBodyLabel>;
-        },
-      },
-    },
-  ];
-
-  const data = [
-    ["Joe James", "Test Corp", "Yonkers", "NY"],
-    ["John Walsh", "Test Corp", "Hartford", "CT"],
-    ["Bob Herm", "Test Corp", "Tampa", "FL"],
-    ["James Houston", "Test Corp", "Dallas", "TX"],
   ];
 
   const options = {
-    // filterType: "checkbox",
     selectableRowsOnClick: false,
     viewColumns: false,
     elevation: 0,
     jumpToPage: false,
     selectableRows: "none",
-    responsive: "standard",
+    responsive: "vertical",
     print: false,
     filter: false,
   };
+
+  const notify = () => {};
+
+  if (isLoading) return <>Loading... </>;
+
+  if (error) return <>Something went wrong</>;
 
   return (
     <>
@@ -83,7 +149,9 @@ const Users = () => {
         </Grid>
         <Grid item lg={6}>
           <Box display={"flex"} justifyContent={"flex-end"}>
-            <Button variant="contained">Add User</Button>
+            <Button variant="contained" color="success">
+              Add User
+            </Button>
           </Box>
         </Grid>
       </Grid>
@@ -94,7 +162,7 @@ const Users = () => {
             <div className="card-body">
               <ThemeProvider theme={muiTableTheme()}>
                 <MUIDataTable
-                  title={"Users List"}
+                  title={""}
                   data={data}
                   columns={columns}
                   options={options}

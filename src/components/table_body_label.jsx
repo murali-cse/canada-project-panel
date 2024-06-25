@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
-const TableBodyLabel = (props) => {
-  const { noWrap = false, children = null } = props || {};
+const TableBodyLabel = ({ noWrap = false, children = null }) => {
   return (
     <span
       className={noWrap ? "text-nowrap" : ""}
